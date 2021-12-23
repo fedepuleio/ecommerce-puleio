@@ -1,0 +1,13 @@
+.logo {
+    max-height: 50px;
+}
+.header {
+    max-height: 100px;
+    width: 100vw;
+}
+.navbar {
+    justify-content: space-between;
+}
+.cartWidget {
+    height: 2000x;
+}
