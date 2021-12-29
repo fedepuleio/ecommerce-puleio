@@ -1,0 +1,17 @@
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+}
+.between {
+    justify-content: space-between;
+}
+.evenly {
+    justify-content: space-evenly;
+}
+
+.centrado {
+    margin: 1rem 25% ;
+}
