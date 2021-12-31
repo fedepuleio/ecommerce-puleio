@@ -2,7 +2,6 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { getFetch } from "../Helpers/mock";
 import ItemList from '../ItemList/ItemList';
-import Item from '../Item/Item';
 
 const ItemListContainer = (props) => {
     // hago un destructuring 
@@ -31,9 +30,7 @@ const ItemListContainer = (props) => {
             <h1>{greeting}</h1>
             { loading ? <h2>Cargando ...</h2>   
                 :
-            <ItemList items={libros}>
-                <Item  items={libros}/>
-            </ItemList>
+            <ItemList items={libros}/>
             }
         </div>
     )

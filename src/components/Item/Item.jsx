@@ -1,11 +1,9 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 
-const Item = ({libros}) => {
+const Item = () => {
 
-    let titulo = {libros}
-
-
+ // no se como hacer para que me tome el libro.titulo
     return (
             <div key={libro.id} className="card flex center" style={{width: 18 + 'rem'}} >
                 <div className="card-body">
