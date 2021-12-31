@@ -37,10 +37,6 @@ const ItemCount = ({stock, initial}) => {
     return (
         <div className ="flex center">
             <div className="card" style={{width: 18 + 'rem'}}>
-                <div className="card-body">
-                    <h5 className="card-title">El Hombre Duplicado - José Saramago</h5>
-                    <p className="card-text">Descripcion del libro / $1.500</p>
-                </div>
                 <div className ="flex evenly centrado">
                     <button type="button" className="btn btn-outline-dark" onClick={subtractCount}>-</button>
                     {count} 
