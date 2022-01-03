@@ -22,7 +22,7 @@ const ItemListContainer = (props) => {
         .finally(() => setLoading(false))
     
     }, [])
-
+        console.log(libros)
 
     
     return (
@@ -30,7 +30,7 @@ const ItemListContainer = (props) => {
             <h1>{greeting}</h1>
             { loading ? <h2>Cargando ...</h2>   
                 :
-            <ItemList items={libros}/>
+            <ItemList libros={libros}/>
             }
         </div>
     )
