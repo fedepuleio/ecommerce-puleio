@@ -1,17 +1,24 @@
 import React from 'react'
-import ItemCount from '../ItemCount/ItemCount';
 
-const Item = ({item}) => {
+
+
+const Item = ({libro}) => {
 
  // no se como hacer para que me tome el libro.titulo
     return (
-            <div className="card flex center" style={{width: 18 + 'rem'}} >
+        <div >
+            <div className="card flex centro" style={{width: 30 + 'rem'}} >
                 <div className="card-body">
-                    <h5 className="card-title"> {item.titulo}</h5>
-                    <p className="card-text">{item.autor}</p>
-                        <ItemCount stock="15" initial={1}/>
+                    <h5 className="card-title text-center"> {libro.titulo}</h5>
+                    <p className="card-text text-center">{libro.autor}</p>
+                    <p className="card-text text-center">{libro.precio}</p>
+                    <div>
+                    <img src={libro.foto} alt={libro.titulo}/>
+                    </div>
+                    <button type="button" className="btn btn-outline-dark" >Detalle del libro</button>
                     </div>
             </div>
+        </div>
     )
 }
 

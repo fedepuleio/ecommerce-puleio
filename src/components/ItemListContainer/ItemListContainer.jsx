@@ -8,21 +8,21 @@ const ItemListContainer = (props) => {
 
     const {greeting} = props
     
-    const [libros, setLibros] = useState([])
+    const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
   //Capturo la respuesta del resolve y el error
 
     useEffect(() => {
         // simulacro de api 
         getFetch
-        .then(respuesta => setLibros(respuesta))
+        .then(respuesta => setProductos(respuesta))
         // Capturamos todos los errores de manera global, y no rompe la app
         .catch((error) => console.log(error))
         //luego, con finally, siempre se va a ejecutar lo que le declaremos
         .finally(() => setLoading(false))
     
     }, [])
-        console.log(libros)
+        console.log(productos)
 
     
     return (
@@ -30,7 +30,7 @@ const ItemListContainer = (props) => {
             <h1>{greeting}</h1>
             { loading ? <h2>Cargando ...</h2>   
                 :
-            <ItemList libros={libros}/>
+            <ItemList productos={productos}/>
             }
         </div>
     )
