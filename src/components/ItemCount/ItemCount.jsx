@@ -19,11 +19,11 @@ const ItemCount = ({stock, initial}) => {
     };
     const onAdd = (stock, count) => {
         if ((count <= stock) && (count = 1)) {
-            console.log(`Agregaste`+ count + `producto al carrito`);
+            console.log(`Agregaste `+ count + ` producto al carrito`);
         } else if ((count <= stock) && (count > 1)) {
-        console.log(`Agregaste`+ count + `productos al carrito`);
+        console.log(`Agregaste `+ count + ` productos al carrito`);
         } else {
-        console.log( "No hay" + count + "disponibles, intentá una cantidad menor");
+        console.log( "No hay " + count + " disponibles, intentá una cantidad menor");
         }
     }
     useEffect(() => {
@@ -43,7 +43,7 @@ const ItemCount = ({stock, initial}) => {
                     <button type="button" className="btn btn-outline-dark" onClick={addCount}>+</button>
                     <br/>
                 </div>
-                    <button type="button" className="btn btn-outline-dark" onClick={onAdd}>Agregar al Carrito</button>
+                    <button type="button" className="btn btn-outline-dark" onClick={()=>onAdd(count)}>Agregar al Carrito</button>
             </div>
         </div>
     );

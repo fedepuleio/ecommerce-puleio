@@ -1,8 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from '../../ItemCount/ItemCount'
 
 
 const ItemDetail = ({producto}) => {
+    const [show,setShow]=useState(true)
+    const onAdd =(count)=>{
+        setShow(false)
+        alert(count)
+    }
     return (
 
         <div>
@@ -14,9 +21,10 @@ const ItemDetail = ({producto}) => {
                 </div>
                 <div className="col-md-6">
                     <img src={producto.foto} alt={producto.titulo} className="text-center"/>
-                    <ItemCount stock={producto.stock} initial={1}/>
+                    {show ? <ItemCount stock= {producto.stock} initial={1} onAdd={onAdd}/> : <Link to='/cart'><button>Terminar la compra</button></Link>}
                 </div>
                 <div class="card-footer">Stock:{producto.stock} unidades.</div>
+                
             </div>
         </div>
     )
