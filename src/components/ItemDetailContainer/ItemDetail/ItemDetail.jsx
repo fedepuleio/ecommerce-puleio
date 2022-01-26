@@ -1,14 +1,24 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../../../Context/CartContext'
 import ItemCount from '../../ItemCount/ItemCount'
 
 
 const ItemDetail = ({producto}) => {
-    const [show,setShow]=useState(true)
+
+    //destructuring de la funcion para no tener que importar todos los contextos cada vez
+    const {agregarAlCarrito} = useCartContext()
+
+
+    // me muestra un boton u otro dependiendo del booleano
+    const [show,setShow] = useState(true)
+
     const onAdd =(count)=>{
         setShow(false)
-        alert(count)
+        agregarAlCarrito({...producto, cantidad : count})
+        alert(`${count}`)
+        console.log(producto)
     }
     return (
 
@@ -21,9 +31,13 @@ const ItemDetail = ({producto}) => {
                 </div>
                 <div className="col-md-6">
                     <img src={producto.foto} alt={producto.titulo} className="text-center"/>
-                    {show ? <ItemCount stock= {producto.stock} initial={1} onAdd={onAdd}/> : <Link to='/cart'><button>Terminar la compra</button></Link>}
+                    {show ? <ItemCount stock= {producto.stock} initial={1} onAdd={onAdd}/> :
+                    <div>
+                        <Link to='/cart'><button>Terminar la Compra</button></Link>
+                        <Link to='/'><button>Seguir Comprando</button></Link>
+                    </div>}
                 </div>
-                <div class="card-footer">Stock:{producto.stock} unidades.</div>
+                <div className="card-footer">Stock:{producto.stock} unidades.</div>
                 
             </div>
         </div>

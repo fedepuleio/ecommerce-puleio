@@ -2,8 +2,11 @@ import React from "react";
 import "./ItemCount.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import {Link} from 'react-router-dom'
 
-const ItemCount = ({stock, initial}) => {
+
+
+const ItemCount = ({stock,onAdd,initial }) => {
     const [count, setCount] = useState(initial);
 
     const addCount = () => {
@@ -17,7 +20,7 @@ const ItemCount = ({stock, initial}) => {
         } 
         
     };
-    const onAdd = (stock, count) => {
+   /*  const onAdd = (stock, count) => {
         if ((count <= stock) && (count = 1)) {
             console.log(`Agregaste `+ count + ` producto al carrito`);
         } else if ((count <= stock) && (count > 1)) {
@@ -25,7 +28,7 @@ const ItemCount = ({stock, initial}) => {
         } else {
         console.log( "No hay " + count + " disponibles, intentá una cantidad menor");
         }
-    }
+    } */
     useEffect(() => {
         
         /*  return () => {
@@ -43,8 +46,9 @@ const ItemCount = ({stock, initial}) => {
                     <button type="button" className="btn btn-outline-dark" onClick={addCount}>+</button>
                     <br/>
                 </div>
-                    <button type="button" className="btn btn-outline-dark" onClick={()=>onAdd(count)}>Agregar al Carrito</button>
+                    <button type="button" className="btn btn-outline-dark" onClick={()=> onAdd(count)}>Agregar al Carrito</button>
             </div>
+            <Link to ='/'><button>Volver atrás</button></Link>
         </div>
     );
 };
