@@ -1,3 +1,28 @@
 .centro {
     margin: 1rem auto;
 }
+.flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dividido {
+    width: 50%;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.margin-top {
+    margin-top: 5rem ;
+}

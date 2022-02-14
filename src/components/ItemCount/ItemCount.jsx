@@ -38,8 +38,8 @@ const ItemCount = ({stock,onAdd,initial }) => {
 
 
     return (
-        <div className ="flex center">
-            <div className="card" style={{width: 18 + 'rem'}}>
+        <div className="align-center" style= {{display: 'flex'}}>
+            <div className="card" style={{width: 50 +'%'}}>
                 <div className ="flex evenly centrado">
                     <button type="button" className="btn btn-outline-dark" onClick={subtractCount}>-</button>
                     {count} 
@@ -47,8 +47,10 @@ const ItemCount = ({stock,onAdd,initial }) => {
                     <br/>
                 </div>
                     <button type="button" className="btn btn-outline-dark" onClick={()=> onAdd(count)}>Agregar al Carrito</button>
-            </div>
+                </div>
+            <div style={{width: 50 +'%'}} className=" center">
             <Link to ='/'><button>Volver atrás</button></Link>
+            </div>
         </div>
     );
 };

@@ -35,7 +35,12 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
-
+    function deleteProd (id) {
+        setCartList(cartList.filter((producto) => producto.id !== id));
+        const itemFiltrado = cartList.findIndex((prod) => prod.id === id);
+        cartList.splice(itemFiltrado, 1);
+        setCartList([...cartList]);
+    };
 
     function vaciarCarrito() {
         setCartList([])
@@ -46,7 +51,8 @@ export const CartContextProvider = ({children}) => {
         <cartContext.Provider value = {{
             cartList,
             agregarAlCarrito,
-            vaciarCarrito
+            vaciarCarrito,
+            deleteProd
         }}>
             {children}
         </cartContext.Provider>

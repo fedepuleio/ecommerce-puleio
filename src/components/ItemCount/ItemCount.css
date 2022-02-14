@@ -15,3 +15,6 @@
 .centrado {
     margin: 1rem 25% ;
 }
+.align-center {
+    align-items: center;
+}

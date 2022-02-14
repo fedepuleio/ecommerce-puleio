@@ -5,7 +5,7 @@ import './ItemList.css';
 
 const ItemList = ({productos}) => {
     return (
-        <div>
+        <div className='flex'>
             {productos.map((libro) => (
                 <Item key={libro.id} libro={libro}/>
             ))}
