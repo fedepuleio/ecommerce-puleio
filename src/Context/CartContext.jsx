@@ -10,8 +10,6 @@ export function useCartContext() {
     return useContext(cartContext)
 }
 
-
-
 // creacion del componente que maneja el contexto 
 export const CartContextProvider = ({children}) => {
     // estados y funciones globales
@@ -46,13 +44,25 @@ export const CartContextProvider = ({children}) => {
         setCartList([])
     }
 
+    const total = () => {
+        const totalCarrito = cartList.reduce(
+            (prev, curr) => prev + curr.price * curr.cantidad,
+            0
+        );
+        return totalCarrito;
+    };
+
+
+
+
     console.log(cartList)
     return (
         <cartContext.Provider value = {{
             cartList,
             agregarAlCarrito,
             vaciarCarrito,
-            deleteProd
+            deleteProd,
+            total
         }}>
             {children}
         </cartContext.Provider>

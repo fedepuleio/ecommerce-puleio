@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./Context/CartContext";
+import {collection,getDocs,query,where,getFirestore} from 'firebase/firestore';
 
 function App() {
   return (
@@ -24,3 +25,6 @@ function App() {
 }
 
 export default App;
+
+
+//  <Route exact path='/formulario' element={<Formulario/>} />
