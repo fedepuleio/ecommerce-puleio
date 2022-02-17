@@ -44,7 +44,7 @@ const ItemListContainer = (props) => {
 
     return (
         <div>
-            <h1>{greeting}</h1>
+            <h1 className="card-text text-center">{greeting}: {idCategoria}</h1>
             { loading ? <h2>Cargando ...</h2>   
                 :
             <ItemList productos={productos}/>

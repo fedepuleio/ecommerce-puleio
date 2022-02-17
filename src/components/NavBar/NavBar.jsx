@@ -31,10 +31,10 @@ const NavBar = () => {
                         </Link>
                         </ul>
                     </div>
-                </div>
                 <Link className="nav-item" to= '/cart'>
                     <CartWidget/>
-                </Link>
+                </Link>              
+                </div>
             </nav>
         </header>
     );

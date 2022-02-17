@@ -1,3 +1,8 @@
+* {
+    text-decoration: none;
+    list-style-type: none;
+}
+
 .logo {
     max-height: 50px;
 }
@@ -5,9 +10,37 @@
     max-height: 100px;
     width: 100vw;
 }
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 .navbar {
     justify-content: space-between;
 }
 .cartWidget {
     height: 2000x;
+}
+
+#navbarSupportedContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nav-item {
+    margin: 0.3rem;
+    color: white;
+    text-decoration: none;
+
+}
+.nav-item:hover {
+    transform: scale(1.04);
+    color: rgb(139, 139, 139);
+    
+}
+
+
+a {
+    color: white;
 }

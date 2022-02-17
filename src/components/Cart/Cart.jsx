@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import {collection,getDocs,query,where,getFirestore,addDoc,documentId,writeBatch} from 'firebase/firestore';
 import { useCartContext } from '../../Context/CartContext'
 import Resumen from '../Resumen/Resumen'
+import "./Cart.css"
 
 
 const Cart = () => {
@@ -70,47 +71,60 @@ const Cart = () => {
             condicional  ? 
                 <Resumen idOrden={idOrden} />
             : 
-                <>
+                <> 
+                <div className='contenedor'>
                     {cartList?.map((prod) => (
-                        <div key={prod.id} className="containerCart">
+
+                        
+                        
+                        <div key={prod.id} className="item">
                             <img src={prod.foto} alt={prod.titulo} />
                             <div style={{alignItems: 'center', justifyContent: 'space-between',width: '300px',}}>
                                 <h3>{prod.titulo} - {prod.autor}</h3>
                                 <h4>Precio:${prod.precio}.- / Cantidad: {prod.cantidad}</h4>
-                                <button onClick={() => deleteProd(prod.id)}> X </button>
+                                <br />
+                                <button className="btn btn-danger" onClick={() => deleteProd(prod.id)}> Eliminar del carrito </button>
+                                <hr />
+                                <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar CArrito</button>
+                                
                             </div>
                         </div>
-                    ))}
-                    <button onClick={vaciarCarrito}>Vaciar Carrito</button>
-                    <form 
-                        onSubmit={realizarCompra} 
-                        onChange={handleChange} 
-                    >
-                        <input 
-                            type='text' 
-                            name='name' 
-                            placeholder='name' 
-                            onChange={handleChange}
-                            value={dataForm.name}
-                        /><br />
-                        <input 
-                            type='text' 
-                            name='phone'
-                            placeholder='tel' 
-                            onChange={handleChange}
-                            value={dataForm.phone}
-                        /><br/>
-                        <input 
-                            type='email' 
-                            name='email'
-                            placeholder='email' 
-                            onChange={handleChange}
-                            value={dataForm.email}
-                        /><br/>
-                    </form>
-                    <button onClick={realizarCompra}>Generar Orden</button>
-                </>
+                        
+                        ))}
+                </div>
 
+
+                <div className='contenedorForm'>
+                    <form onSubmit={realizarCompra} onChange={handleChange}>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" name='name' placeholder='Ingrese su nombre' onChange={handleChange}
+                            value={dataForm.name} class="form-control"  />
+                            <div id="emailHelp" class="form-text">Tus datos siempre estarán protegidos.</div>
+                        </div>
+                        <br/>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefono</label>
+                            <input type='text' 
+                            name='phone'
+                            placeholder='+549111111111' 
+                            onChange={handleChange}
+                            value={dataForm.phone} class="form-control"  />
+                        </div>
+                        <br/>
+                        <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type='text' 
+                            name='email'
+                            placeholder='ejemplo@gmail.com' 
+                            onChange={handleChange}
+                            value={dataForm.email}class="form-control"/>
+                        </div>
+                        <br/>
+                    </form>
+                    <button className="btn btn-warning" onClick={realizarCompra}>Generar Orden</button>
+                    </div>
+                </>
         }          
     </div>
 
