@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import Resumen from "../Resumen/Resumen"
-import { addDoc, collection, doc, documentId, getDocs, getFirestore, query, updateDoc, where, writeBatch } from "firebase/firestore"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 
 const ItemListContainer = (props) => {
@@ -25,7 +25,7 @@ const ItemListContainer = (props) => {
                 where('categoria', '==', idCategoria)
             );
             getDocs(queryProducts).then((res) =>
-            setProductos(res.docs.map((prod) => ({id: prod.id,...prod.productos(),
+            setProductos(res.docs.map((prod) => ({id: prod.id,...prod.data(),
                     }))
                 )
             );
@@ -34,7 +34,7 @@ const ItemListContainer = (props) => {
             const db = getFirestore();
             const queryProducts = collection(db, 'items');
             getDocs(queryProducts).then((res) =>
-            setProductos(res.docs.map((prod) => ({id: prod.id,...prod.productos(),
+            setProductos(res.docs.map((prod) => ({id: prod.id,...prod.data(),
                     }))
                 )
             );

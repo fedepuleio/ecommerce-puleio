@@ -4,11 +4,21 @@ import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { initializeApp } from 'firebase/app';
-import { getFirestoreApp } from './firebase/dbConfig'
+
 
 
     //const app = initializeApp(firebaseConfig);
-    getFirestoreApp()
+const firebaseConfig = {
+        apiKey: "AIzaSyAd3fsxDZwPwu8xKlkoGsg07SPERg6gW_I",
+        authDomain: "ecommece-puleio.firebaseapp.com",
+        projectId: "ecommece-puleio",
+        storageBucket: "ecommece-puleio.appspot.com",
+        messagingSenderId: "41599841691",
+        appId: "1:41599841691:web:426c7dbaaf07a48f7e1d3e",
+        measurementId: "G-S9RGPVNJ2H"
+        };  
+
+        initializeApp(firebaseConfig);
 
 ReactDOM.render(
     <React.StrictMode>
