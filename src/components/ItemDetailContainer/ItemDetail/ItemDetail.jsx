@@ -23,7 +23,7 @@ const ItemDetail = ({producto}) => {
         <div className="card row centro" style={{width: 100 + 'rem'}}>
             <div className= "dividido">
                 <div className="card-body">
-                    <img style= {{width:100 + 'px', height: 100 + 'px'}}src={producto.foto} alt={producto.titulo} className="text-center"/>
+                    <img style= {{width:100 + 'px', height: 100 + 'px', alignSelf: 'center',marginTop: 0.5 +'rem' }}src={producto.foto} alt={producto.titulo} className="text-center"/>
                     <h5 className="card-title text-center"> {producto.titulo}</h5>
                     <p className="card-text text-center">{producto.autor}</p>
                     <p className="card-text text-center">$ {producto.precio} .-</p>

@@ -1,11 +1,10 @@
 .card-body {
     margin: 1rem auto;
     margin-bottom: 1rem;
-
 }
 .card {
-    margin-bottom: 1rem ;
     height: 100rem;
+    margin: 1rem;   
 }
 
 .containerDetail {
@@ -36,10 +35,7 @@
 
 
 
-.card-body {
-    gap: 4rem;
+.justify-center {
+    justify-content: center;
 }
 
-.justify-center {
-    align-items: center;
-}

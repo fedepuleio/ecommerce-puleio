@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import Resumen from "../Resumen/Resumen"
+import './ItemListContainer.css';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 
@@ -17,21 +18,22 @@ const ItemListContainer = (props) => {
 
     const {idCategoria} = useParams()
 
-    useEffect(() => {
-        if (idCategoria) {
-            const db = getFirestore();
+    function traerproductosCategoria() {
+        const db = getFirestore();
             const queryProducts = query(
                 collection(db, 'items'),
                 where('categoria', '==', idCategoria)
             );
-            getDocs(queryProducts).then((res) =>
+            getDocs(queryProducts)
+            .then((res) =>
             setProductos(res.docs.map((prod) => ({id: prod.id,...prod.data(),
                     }))
                 )
             );
             setLoading(false);
-        } else {
-            const db = getFirestore();
+    }
+    function traerTodosLosProductos() {
+        const db = getFirestore();
             const queryProducts = collection(db, 'items');
             getDocs(queryProducts).then((res) =>
             setProductos(res.docs.map((prod) => ({id: prod.id,...prod.data(),
@@ -39,14 +41,22 @@ const ItemListContainer = (props) => {
                 )
             );
             setLoading(false);
+    }
+
+    useEffect(() => {
+        if (idCategoria) {
+            traerproductosCategoria();
+        } else {
+            traerTodosLosProductos()
         }
     }, [idCategoria]);
 
     return (
         <div>
-            <h1 className="card-text text-center">{greeting}: {idCategoria}</h1>
-            { loading ? <h2>Cargando ...</h2>   
-                :
+            <h1 className="card-text text-center">{greeting} {idCategoria}</h1>
+
+            { loading ? <h1 style={{fontSize : '30px', color: 'red' }}>Cargando ...</h1>
+            :
             <ItemList productos={productos}/>
             }
         </div>

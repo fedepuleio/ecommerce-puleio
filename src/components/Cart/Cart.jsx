@@ -71,12 +71,27 @@ const Cart = () => {
             condicional  ? 
                 <Resumen idOrden={idOrden} />
             : 
-                <> 
-                <div className='contenedor'>
+            <>
+                {  cartList.length === 0 ? (
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        minHeight: '70vh',
+                    }}
+                >
+                    <h2>Aún no agregaste productos al carrito</h2>
+                    <Link to="/">
+                        <button className="btn btn-warning">Ir al catálogo</button>
+                    </Link>
+                </div>
+            ) :
+                
+                
+                (<div className='contenedor'>
                     {cartList?.map((prod) => (
-
-                        
-                        
                         <div key={prod.id} className="item">
                             <img src={prod.foto} alt={prod.titulo} />
                             <div style={{alignItems: 'center', justifyContent: 'space-between',width: '300px',}}>
@@ -84,15 +99,15 @@ const Cart = () => {
                                 <h4>Precio:${prod.precio}.- / Cantidad: {prod.cantidad}</h4>
                                 <br />
                                 <button className="btn btn-danger" onClick={() => deleteProd(prod.id)}> Eliminar del carrito </button>
-                                <hr />
-                                <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar CArrito</button>
-                                
+                                <hr />                                
                             </div>
                         </div>
-                        
                         ))}
+                </div> )
+                }
+                <div className='contenedor'>
+                <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button> 
                 </div>
-
 
                 <div className='contenedorForm'>
                     <form onSubmit={realizarCompra} onChange={handleChange}>
@@ -121,22 +136,22 @@ const Cart = () => {
                             value={dataForm.email}class="form-control"/>
                         </div>
                         <br/>
+                        <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">Repita su email</label>
+                        <input type='text' 
+                            name='email'
+                            placeholder='ejemplo@gmail.com' 
+                            onChange={handleChange}
+                            class="form-control"/>
+                        </div>
+                        <br/>
+                        
                     </form>
                     <button className="btn btn-warning" onClick={realizarCompra}>Generar Orden</button>
                     </div>
                 </>
         }          
     </div>
-
-
-
-
-
-
-
-
-
-
 
     )
 }

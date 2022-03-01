@@ -1,10 +1,11 @@
 import React from 'react';
 
 function Resumen({idOrden}) {
-    return 
+    
+    return (
     <div>
-        El id de la orden generada es:  {idOrden}
-    </div>;
-}
+        El id de la orden generada es: {idOrden}
+    </div>
+    ) }
 
 export default Resumen;

@@ -9,6 +9,7 @@ import {doc,getFirestore,getDoc} from 'firebase/firestore';
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
     const {idDetalle} = useParams()
+    const [loading, setLoading] = useState(true)
     
     useEffect(() => {
         const db = getFirestore();
@@ -16,11 +17,16 @@ const ItemDetailContainer = () => {
         getDoc(queryProd).then((resp) => {
             setProducto({ id: resp.id, ...resp.data() });
         });
+        setLoading(false);
     }, [idDetalle]);
 
     return (
+
         <div>
+            {loading ? <h2>Cargando...</h2> 
+            : 
             <ItemDetail  producto={producto}/>
+            }
         </div>
     )
 }
